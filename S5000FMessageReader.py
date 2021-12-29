@@ -12,12 +12,12 @@ import os
 
 
 
-__author__ = "Daniel Osorio"
-__credits__ = ["Daniel Osorio"]
+__author__ = "Bernard Raust"
+__credits__ = ["Bernard Raust"]
 __version__ = "1.0.0"
-__maintainer__ = "Daniel Osorio"
-__email__ = "vdosavh@gmail.com"
-__status__ = "Production"
+__maintainer__ = "Bernard Raust"
+__email__ = "bernard.raust@gmail.com"
+__status__ = "Development"
 
 class GEMuseXMLReader:
     def __init__(self, path):
