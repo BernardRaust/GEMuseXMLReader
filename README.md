@@ -1,5 +1,5 @@
 # S5000FMessageReader
-&nbsp;&nbsp;&nbsp;&nbsp; Python class for reading S5000F&reg; XML message files. Returns a header with most of the file configurations and the lead's data is available as a Numpy array or a Pandas data frame.
+&nbsp;&nbsp;&nbsp;&nbsp; Python class for reading S5000F XML message files. Returns a header with most of the file configurations and the lead's data is available as a Numpy array or a Pandas data frame.
 
 ## Dependencies
 &nbsp;&nbsp;&nbsp;&nbsp; This reader needs the following libraries to parse the XML files:
