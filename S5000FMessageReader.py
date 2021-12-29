@@ -1,4 +1,27 @@
-import xmltodict
+import xml.etree.ElementTree as ET
+import traceback
+
+__author__ = "Bernard Raust"
+__credits__ = ["Bernard Raust"]
+__version__ = "1.0.0"
+__maintainer__ = "Bernard Raust"
+__email__ = "bernard.raust@gmail.com"
+__status__ = "Development"
+
+class MessageReader():
+    def __init__(self, xmlfile):
+        try:
+            with open(xmlfile, 'rb') as fd:
+                self.xmltree = ET.parse(fd)
+                self.root = self.xmltree.getroot()
+                print(self.root)
+        except Exception: 
+            print(traceback.print_exc())
+    
+if __name__ == "__main__":
+    MessageReader()
+
+''' import xmltodict
 import xlwt
 import traceback
 import numpy as np
@@ -9,15 +32,6 @@ import json
 import re
 from functools import reduce
 import os
-
-
-
-__author__ = "Bernard Raust"
-__credits__ = ["Bernard Raust"]
-__version__ = "1.0.0"
-__maintainer__ = "Bernard Raust"
-__email__ = "bernard.raust@gmail.com"
-__status__ = "Development"
 
 class GEMuseXMLReader:
     def __init__(self, path):
@@ -274,3 +288,4 @@ if __name__ == "__main__":
     
 
 
+ '''
