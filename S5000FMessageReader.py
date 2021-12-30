@@ -1,5 +1,9 @@
 import xml.etree.ElementTree as ET
 import traceback
+import sys, os
+import argparse
+from time import gmtime, strftime
+
 
 __author__ = "Bernard Raust"
 __credits__ = ["Bernard Raust"]
@@ -17,9 +21,33 @@ class MessageReader():
                 print(self.root)
         except Exception: 
             print(traceback.print_exc())
+            
+    def saveToCSV(self, filename=None):
+        if(filename==None):
+            filename = 'GEMuseXML' + strftime("%Y-%m-%d_%H-%M-%S", gmtime())
+        temp = open('.{}{}.csv'.format(os.sep, filename), 'w')
+        temp.write('# ' + self.__header_string + '\n')
+        temp.write(self.__data_string)
+        temp.close()
     
 if __name__ == "__main__":
-    MessageReader()
+    
+    def parseArgParser(file, arg, type):
+        if(arg == ' '):
+            filename = None
+        else:
+            filename = arg
+
+        if(type == 'csv'):
+            file.saveToCSV(filename)
+            
+    parser = argparse.ArgumentParser()
+    parser.add_argument('file',help="file path")
+    parser.add_argument('-csv',help="convert to csv",nargs='?',const=' ')
+        
+    args=parser.parse_args()
+    
+    file = MessageReader(args.file)
 
 ''' import xmltodict
 import xlwt
